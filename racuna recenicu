@@ -1,20 +1,27 @@
 #include <iostream>
-#include <cstring>
+using namespace std;
 
-int countLetters(const char *str) {
+int countLetters(string str) {
     int count = 0;
-    while (*str != '\0') {
-        if (std::isalpha(*str)) {
+    char* ptr = &str[0]; // pointer to the first character in the string
+
+    while (*ptr != '\0') { // loop until the end of the string is reached
+        if (isalpha(*ptr)) { // check if the character is a letter
             count++;
         }
-        str++;
+        ptr++; // move the pointer to the next character
     }
+
     return count;
 }
 
 int main() {
-    const char *str = "Hello, World!";
-    int letterCount = countLetters(str);
-    std::cout << "The string \"" << str << "\" has " << letterCount << " letters.\n";
+    string str;
+    cout << "Enter a string: ";
+    getline(cin, str); // read a line of input from the user
+
+    int numLetters = countLetters(str);
+    cout << "The number of letters in the string is: " << numLetters << endl;
+
     return 0;
 }
