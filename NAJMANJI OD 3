@@ -1,0 +1,26 @@
+#include <iostream>
+using namespace std;
+
+int* find_smallest(int* num1, int* num2, int* num3) {
+    int* smallest = num1;
+    if(*num2 < *smallest) {
+        smallest = num2;
+    }
+    if(*num3 < *smallest) {
+        smallest = num3;
+    }
+    return smallest;
+}
+
+int main() {
+    int num1, num2, num3;
+    cout << "Enter three integers: ";
+    cin >> num1 >> num2 >> num3;
+    
+    int* smallest_ptr = find_smallest(&num1, &num2, &num3);
+    
+    cout << "The smallest number entered is: " << *smallest_ptr << endl;
+    cout << "The memory address of the smallest number is: " << smallest_ptr << endl;
+    
+    return 0;
+}
