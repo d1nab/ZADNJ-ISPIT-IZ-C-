@@ -1,0 +1,35 @@
+#include <iostream>
+
+using namespace std;
+
+int* findEvens(int* arr, int size, int& numEvens) {
+    int* evenArr = new int[size];
+    numEvens = 0;
+    for (int i = 0; i < size; i++) {
+        if (*(arr + i) % 2 == 0) {
+            *(evenArr + numEvens) = *(arr + i);
+            numEvens++;
+        }
+    }
+    return evenArr;
+}
+
+int main() {
+    int size;
+    cout << "Enter the size of the array: ";
+    cin >> size;
+    int* arr = new int[size];
+    cout << "Enter the elements of the array: ";
+    for (int i = 0; i < size; i++) {
+        cin >> *(arr + i);
+    }
+    int numEvens;
+    int* evenArr = findEvens(arr, size, numEvens);
+    cout << "The even numbers in the array are: ";
+    for (int i = 0; i < numEvens; i++) {
+        cout << *(evenArr + i) << " ";
+    }
+    delete[] arr;
+    delete[] evenArr;
+    return 0;
+}
