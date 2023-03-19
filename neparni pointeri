@@ -1,0 +1,28 @@
+#include <iostream>
+
+using namespace std;
+
+void findOdd(int* arr, int size) {
+    cout << "Odd numbers in the array: ";
+    for (int i = 0; i < size; i++) {
+        if (*arr % 2 != 0) {
+            cout << *arr << " ";
+        }
+        arr++;
+    }
+    cout << endl;
+}
+
+int main() {
+    int size;
+    cout << "Enter the size of the array: ";
+    cin >> size;
+    int* arr = new int[size];
+    cout << "Enter the elements of the array: ";
+    for (int i = 0; i < size; i++) {
+        cin >> *(arr + i);
+    }
+    findOdd(arr, size);
+    delete[] arr;
+    return 0;
+}
